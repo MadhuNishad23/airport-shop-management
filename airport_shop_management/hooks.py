@@ -122,34 +122,54 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+    "Shop": {
+        "on_update": "airport_shop_management.api.update_shop_counts"
+    }
+}
+
 
 # Scheduled Tasks
 # ---------------
 
 # scheduler_events = {
-# 	"all": [
-# 		"airport_shop_management.tasks.all"
-# 	],
 # 	"daily": [
-# 		"airport_shop_management.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"airport_shop_management.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"airport_shop_management.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"airport_shop_management.tasks.monthly"
-# 	],
+# 		"airport_shop_management.api.send_rent_reminders"
+# 	]
 # }
+
+# website_route_rules = [
+#     {"from_route": "/available_shops", "to_route": "available-shops"},
+# ]
+
+# website_generators = ["Available Shops"]
+
+# scheduler_events = {
+#     "cron": {
+#         "*/2 * * * *": [
+#             "airport_shop_management.api.check_and_notify_expired_rent"
+#         ]
+#     }
+# }
+
+# scheduler_events = {
+#     "cron": {
+#         "*/5 * * * *": [  # This will run the function every 5 minutes
+#             "airport_shop_management.api.send_monthly_rent_reminders"
+#         ]
+#     }
+# }
+
+# scheduler_events = {
+#     "cron": {
+#         "*/5 * * * *": [  # This will run the function every 5 minutes
+#             "airport_shop_management.api.send_rent_reminders"
+#         ]
+#     }
+# }
+
+
+
 
 # Testing
 # -------
